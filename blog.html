@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="cupcake">
 
 <head>
     <meta charset="UTF-8">
@@ -9,8 +9,31 @@
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
 
-<body>
+<body class="container mx-auto">
+    <header>
+        <nav class="py-10">
+            <div class="flex justify-between">
+                <div class="logo">
+                    <a href="index.html"><img src="./images/Logo.png" alt="Logo"></a>
+                </div>
 
+                <div class="blog-btn">
+                    <button
+                        class="btn btn-primary px-6 h-5 rounded-md capitalize bg-green-800 text-white hover:bg-black"
+                        id="" onclick="navigateBlog()">Blog</button>
+                </div>
+            </div>
+
+            <hr class="my-8">
+        </nav>
+    </header>
+
+    <main>
+
+    </main>
+
+    <!-- script -->
+    <script src="./js/index.js"></script>
 </body>
 
 </html>

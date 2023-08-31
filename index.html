@@ -15,7 +15,7 @@
         <nav class="py-10">
             <div class="flex justify-between">
                 <div class="logo">
-                    <img src="./images/Logo.png" alt="Logo">
+                    <a href="index.html"><img src="./images/Logo.png" alt="Logo"></a>
                 </div>
 
                 <div class="view-sort-btn">
@@ -26,7 +26,7 @@
                 <div class="blog-btn">
                     <button
                         class="btn btn-primary px-6 h-5 rounded-md capitalize bg-green-800 text-white hover:bg-black"
-                        id="" onclick="">Blog</button>
+                        id="blog-btn" onclick="navigateBlog()">Blog</button>
                 </div>
             </div>
 
@@ -35,13 +35,29 @@
     </header>
 
     <main>
+        <!-- tabs section -->
+        <section>
+            <!-- category container -->
+            <div class="tabs tabs-boxed bg-gray-50 text-center justify-center" id="tabs-container">
+                <!-- tab temp -->
+                <a class="rounded-md bg-slate-400 py-1 px-4 active:bg-green-600 active:text-white text-black">Tab 1</a>
+            </div>
+
+            <!-- tab will update by js here -->
+
+
+
+        </section>
+
+        <!-- cards section -->
         <section class="grid grid-cols-1 gap-4 my-2 md:grid-cols-2 lg:grid-cols-4">
 
             <!-- crd temp -->
             <div class="card w-96 bg-base-100 rounded-md p-5">
                 <div>
                     <div>
-                        <figure class="rounded-md"><img class="rounded-md" src="./images/Logo.png" alt="Shoes" /></figure>
+                        <figure class="rounded-md"><img class="rounded-md" src="./images/Logo.png" alt="Shoes" />
+                        </figure>
                     </div>
 
                     <div class="bg-black text-white text-sm w-1/3 rounded-md absolute p-1 text-center top-45 right-4">
