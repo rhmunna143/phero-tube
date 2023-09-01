@@ -37,6 +37,21 @@ const catCards = async (id) => {
         const postTime = element?.others?.posted_date;
         const views = element?.others?.views;
 
+        // convert post time in hr min
+        const timeOfPost = timeConvert(postTime);
+
+        
+
+        //author info
+        const cont = () => {
+            for (ar of arrAuthor) {
+                return ar;
+            }
+        }
+
+        const author = cont();
+        let verified = author?.verified;
+
 
         const div = document.createElement("div");
         div.innerHTML = `
@@ -46,8 +61,8 @@ const catCards = async (id) => {
                         <div class="rounded-md"><img class="rounded-md" src="./images/Rectangle 1.png" alt="Shoes" />
                         </div>
 
-                        <div class="bg-black text-white text-sm w-1/2 rounded-md relative px-4 py-1 text-center bottom-11 left-28">
-                            <p>30hr 50min ago</p>
+                        <div class="bg-black text-white text-sm w-1/2 rounded-md relative py-1 text-center bottom-11 left-28" id="time-id">
+                            <p>${timeOfPost}</p>
                         </div>
                     </div>
                 </div>
@@ -73,12 +88,45 @@ const catCards = async (id) => {
 
         cardsContainer.appendChild(div);
 
-        console.log(views);
+        hideTime(timeOfPost);
+
 
     });
 }
 
+catCards(1000);
 
+
+// sec to hr and min
+const timeConvert = (sec, timeOfPost) => {
+    const hours = Math.floor(sec / 3600);
+    const minutes = Math.floor((sec % 3600) / 60);
+
+    let result = '';
+
+    if (hours > 0) {
+        result += `${hours}hr `;
+    }
+
+    if (minutes > 0) {
+        result += `${minutes} min ago`;
+    }
+
+    if (result === '') {
+        result = false;
+    }
+
+    return result;
+}
+
+// hide time
+const hideTime = (timeOfPost) => {
+    const timeCont = document.getElementById("time-id")
+
+    if (timeOfPost === false) {
+        timeCont.classList.add("hidden");
+    }
+}
 
 
 // navigate to blog
