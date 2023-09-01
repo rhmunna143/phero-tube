@@ -50,15 +50,15 @@ const catCards = async (id) => {
         }
 
         const author = cont();
-        let verified = author?.verified;
-
+        const verified = author?.verified;
+        console.log(verified);
 
         const div = document.createElement("div");
         div.innerHTML = `
             <div class="card bg-base-100 rounded-md p-5">
                 <div class="">
-                    <div class="max-h-[200px] rounded-md ">
-                        <div class="rounded-md"><img class="rounded-md" src="./images/Rectangle 1.png" alt="Shoes" />
+                    <div class="h-[200px] rounded-md ">
+                        <div class="rounded-md"><img class="rounded-md h-[200px] w-[300]" src="${element.thumbnail}" alt="Shoes" />
                         </div>
 
                         <div class="bg-black text-white text-sm w-1/2 rounded-md relative py-1 text-center bottom-11 left-28" id="time-id">
@@ -69,17 +69,17 @@ const catCards = async (id) => {
                 <div class="card-body">
                     <div class="flex mt-4 gap-4">
                         <!-- channel logo -->
-                        <div class="aspect-square rounded-full">
-                            <img src="" alt="pp">
+                        <div class="aspect-square h-[50px] w-[50-px] rounded-[50%]">
+                            <img class="h-[50px] w-[50-px] aspect-square rounded-[50%]" src="${author?.profile_picture}" alt="pp">
                         </div>
 
                         <div>
-                            <h4 class="text-lg font-semibold">title</h4>
+                            <h4 class="text-lg font-semibold">${element?.title}</h4>
                             <div class="flex gap-2">
-                                <p>author</p>
-                                <img class="h-6 w-6 hidden" id="verified" src="./images/verified.png" alt="">
+                                <p>${author?.profile_name}</p>
+                                <img class="h-6 w-6 hidden" id="verified-img" src="./images/verified.png" alt="">
                             </div>
-                            <p>views</p>
+                            <p>${views}</p>
                         </div>
                     </div>
                 </div>
@@ -90,6 +90,7 @@ const catCards = async (id) => {
 
         hideTime(timeOfPost);
 
+        showVerified(verified);
 
     });
 }
@@ -128,6 +129,14 @@ const hideTime = (timeOfPost) => {
     }
 }
 
+// show verified badge
+const showVerified = prm => {
+    const verifiedContainer = document.getElementById("verified-img");
+
+    if(prm === true) {
+        verifiedContainer.classList.remove("hidden");
+    }
+}
 
 // navigate to blog
 const navigateBlog = () => window.location.href = "blog.html";
