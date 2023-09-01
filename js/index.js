@@ -51,17 +51,17 @@ const catCards = async (id) => {
 
         const author = cont();
         const verified = author?.verified;
-        console.log(verified);
+        console.log(id, element);
 
         const div = document.createElement("div");
         div.innerHTML = `
             <div class="card bg-base-100 rounded-md p-5">
                 <div class="">
-                    <div class="h-[200px] rounded-md ">
-                        <div class="rounded-md"><img class="rounded-md h-[200px] w-[300]" src="${element.thumbnail}" alt="Shoes" />
+                    <div class="rounded-md ">
+                        <div class="rounded-md"><img class="rounded-md h-52 w-80" src="${element.thumbnail}" alt="Shoes" />
                         </div>
 
-                        <div class="bg-black text-white text-sm w-1/2 rounded-md relative py-1 text-center bottom-11 left-28" id="time-id">
+                        <div class="bg-black text-white text-sm w-1/2 rounded-md relative py-1 text-center bottom-11 left-28 ${!timeOfPost && "hidden"}" id="time-id">
                             <p>${timeOfPost}</p>
                         </div>
                     </div>
@@ -75,9 +75,9 @@ const catCards = async (id) => {
 
                         <div>
                             <h4 class="text-lg font-semibold">${element?.title}</h4>
-                            <div class="flex gap-2">
+                            <div class="flex gap-1">
                                 <p>${author?.profile_name}</p>
-                                <img class="h-6 w-6 hidden" id="verified-img" src="./images/verified.png" alt="">
+                                <img class="h-6 w-6 ${!verified && "hidden"}" id="verified-img" src="./images/verified.png" alt="">
                             </div>
                             <p>${views}</p>
                         </div>
@@ -87,11 +87,6 @@ const catCards = async (id) => {
         `;
 
         cardsContainer.appendChild(div);
-
-        hideTime(timeOfPost);
-
-        showVerified(verified);
-
     });
 }
 
@@ -118,24 +113,6 @@ const timeConvert = (sec, timeOfPost) => {
     }
 
     return result;
-}
-
-// hide time
-const hideTime = (timeOfPost) => {
-    const timeCont = document.getElementById("time-id")
-
-    if (timeOfPost === false) {
-        timeCont.classList.add("hidden");
-    }
-}
-
-// show verified badge
-const showVerified = prm => {
-    const verifiedContainer = document.getElementById("verified-img");
-
-    if(prm === true) {
-        verifiedContainer.classList.remove("hidden");
-    }
 }
 
 // navigate to blog
