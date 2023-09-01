@@ -54,11 +54,12 @@ const catCards = async (id) => {
         console.log(id, element);
 
         const div = document.createElement("div");
+        div.classList.add("card", "bg-base-100", "rounded-md", "w-[300px]");
         div.innerHTML = `
-            <div class="card bg-base-100 rounded-md p-5">
+            
                 <div class="">
-                    <div class="rounded-md ">
-                        <div class="rounded-md"><img class="rounded-md h-52 w-80" src="${element.thumbnail}" alt="Shoes" />
+                    <div class="rounded-md">
+                        <div class="rounded-md h-52 w-[300px]"><img class="rounded-md h-52 w-[300px]" src="${element.thumbnail}" alt="Shoes" />
                         </div>
 
                         <div class="bg-black text-white text-sm w-1/2 rounded-md relative py-1 text-center bottom-11 left-28 ${!timeOfPost && "hidden"}" id="time-id">
@@ -66,8 +67,8 @@ const catCards = async (id) => {
                         </div>
                     </div>
                 </div>
-                <div class="card-body">
-                    <div class="flex mt-4 gap-4">
+                <div class="card-body p-5">
+                    <div class="flex gap-4">
                         <!-- channel logo -->
                         <div class="aspect-square h-[50px] w-[50-px] rounded-[50%]">
                             <img class="h-[50px] w-[50-px] aspect-square rounded-[50%]" src="${author?.profile_picture}" alt="pp">
@@ -83,7 +84,7 @@ const catCards = async (id) => {
                         </div>
                     </div>
                 </div>
-            </div>
+            
         `;
 
         cardsContainer.appendChild(div);
