@@ -11,12 +11,16 @@
 
 <body class="container mx-auto">
     <header>
-        <nav class="py-10">
+        <nav class="py-10 px-4 lg:px-0">
             <div class="flex justify-between">
                 <div class="logo">
                     <a href="index.html"><img src="./images/Logo.png" alt="Logo"></a>
                 </div>
 
+                <div class="view-sort-btn">
+                    <a href="index.html"><button class="btn btn-primary px-4 h-5 rounded-md capitalize" id="" onclick="">Go Home</button></a>
+                </div>
+                
                 <div class="blog-btn">
                     <button
                         class="btn btn-primary px-6 h-5 rounded-md capitalize bg-green-800 text-white hover:bg-black"
@@ -35,8 +39,34 @@
             <div class="border border-blue-500 text-blue-900 rounded-md p-10 bg-slate-200">
                 <h2 class="font-bold text-3xl mb-4">Discuss the scope of var, let, and const</h2>
 
-                <p class="text-lg font-medium">Ans 1
-                    
+                <p class="text-lg font-medium">
+                    <b>var:</b> <br>
+
+                <ul class="list-disc ml-5">
+                    <li>Functional level or global scope.</li>
+                    <li>Raised and initialized with undefined.</li>
+                    <li>It can be reassigned and re-declared.</li>
+                </ul>
+
+                <br>
+                <b>let:</b> <br>
+
+                <ul class="list-disc ml-5">
+                    <li>Block-level scope.</li>
+                    <li>Raised but uninitialized (if used before declaration results in ReferenceError).</li>
+                    <li>It can be reallocated but cannot be declared again in the same scope.</li>
+                </ul>
+
+                <br>
+                <b>const:</b> <br>
+
+                <ul class="list-disc ml-5">
+                    <li>Block-level scope.</li>
+                    <li>Raised but uninitialized (if used before declaration results in ReferenceError).</li>
+                    <li>Cannot be reassigned after declaration (but object properties or array elements can be
+                        modified).</li>
+                    <li>Cannot be declared again in the same scope.</li>
+                </ul>
                 </p>
             </div>
 
@@ -44,14 +74,33 @@
             <div class="border border-blue-500 text-blue-900 rounded-md p-10 bg-slate-200">
                 <h2 class="font-bold text-3xl mb-4">Tell us the use cases of null and undefined</h2>
 
-                <p class="text-lg font-medium">Ans 1</p>
+                <p class="text-lg font-medium">
+                    <b>null:</b> <br>
+
+                    <ul class="list-disc ml-5">
+                        <li>It is used to explicitly express the absence of a value.</li>
+                        <li>It is often used as a placeholder for future assignments.</li>
+                    </ul>
+                    
+                    <br>
+                    <b>undefined:</b> <br>
+                    
+                    <ul class="list-disc ml-5">
+                        <li>Automatically assigned to function parameters that are not available.</li>
+                        <li>Represents the default value for uninitialized variables.</li>
+                        <li>It is usually used to indicate that something is missing or undefined.</li>
+                        <li>It can be unintentional and indicate a bug in your code when you encounter it unexpectedly.</li>
+                    </ul> 
+                </p>
             </div>
 
             <!-- post 3 -->
             <div class="border border-blue-500 text-blue-900 rounded-md p-10 bg-slate-200">
                 <h2 class="font-bold text-3xl mb-4">What do you mean by REST API?</h2>
 
-                <p class="text-lg font-medium">Ans 1</p>
+                <p class="text-lg font-normal">
+                    REST API, or Representational State Transfer Application Programming Interface, is a widely used web services architecture. It prioritizes simplicity and scalability, allowing software components to communicate effectively. Key principles include stateless status where every application contains all necessary information; client-server model for separation of interests; uniform interfaces with standardized HTTP methods such as GET and POST; and resource-based URLs. These features simplify the development of web applications and enable the exchange of data between clients and servers. REST APIs have become an essential part of the development of modern web and mobile applications and support seamless data acquisition and manipulation.
+                </p>
             </div>
         </section>
     </main>
