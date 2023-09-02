@@ -90,7 +90,7 @@ const catCards = async (id) => {
                                 <p>${author?.profile_name}</p>
                                 <img class="h-6 w-6 ${!verified && "hidden"}" id="verified-img" src="./images/verified.png" alt="">
                             </div>
-                            <p>${views}</p>
+                            <p class="views">${views}</p>
                         </div>
                     </div>
                 </div>
@@ -128,3 +128,49 @@ const timeConvert = (sec, timeOfPost) => {
 
 // navigate to blog
 const navigateBlog = () => window.location.href = "blog.html";
+
+// sort functionality
+
+//a global variable
+let sortByDescending = false;
+
+// Convert views from "K" format to numbers
+function convertViewsToNumber(viewsText) {
+    const numPart = parseFloat(viewsText);
+    const multiplier = viewsText.includes('K') ? 1000 : 1;
+    return numPart * multiplier;
+}
+
+// Sort the content by views
+const sortByViews = () => {
+    const cardsContainer = document.getElementById("cards-container");
+    const content = Array.from(cardsContainer.children);
+
+    content.sort((a, b) => {
+        const viewsA = convertViewsToNumber(a.querySelector(".views").textContent);
+        const viewsB = convertViewsToNumber(b.querySelector(".views").textContent);
+
+        if (sortByDescending) {
+            return viewsB - viewsA; //descending order
+        } else {
+            // extra handling for the Music category to reverse due to not working properly
+            if (a.classList.contains("music")) {
+                return viewsA - viewsB;
+            }
+            return viewsB - viewsA; //ascending order
+        }
+    });
+
+    // Clear content
+    cardsContainer.innerHTML = "";
+
+    // Append the sorted content
+    content.forEach((card) => {
+        cardsContainer.appendChild(card);
+    });
+
+    // Toggle sort order
+    sortByDescending = !sortByDescending;
+};
+
+sortByViews();
