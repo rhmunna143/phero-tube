@@ -67,12 +67,12 @@ const catCards = async (id) => {
         div.classList.add("card", "bg-base-100", "rounded-md", "w-[300px]");
         div.innerHTML = `
             
-                <div class="">
+                <div class="relative">
                     <div class="rounded-md">
                         <div class="rounded-md h-52 w-[300px]"><img class="rounded-md h-52 w-[300px]" src="${element.thumbnail}" alt="Shoes" />
                         </div>
 
-                        <div class="bg-black text-white text-sm w-1/2 rounded-md relative py-1 text-center bottom-11 left-28 ${!timeOfPost && "hidden"}" id="time-id">
+                        <div class="bg-black text-white text-sm w-1/2 rounded-md absolute py-1 text-center top-40 left-32 ${!timeOfPost && "hidden"}" id="time-id">
                             <p>${timeOfPost}</p>
                         </div>
                     </div>
