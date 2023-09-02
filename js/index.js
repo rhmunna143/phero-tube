@@ -87,7 +87,7 @@ const getCardTemplate = (element) => {
         </div>
     </div>
 </div>
-<div class="card-body p-5">
+<div class="p-5">
     <div class="flex gap-4">
         <!-- channel logo -->
         <div class="aspect-square h-[50px] w-[50-px] rounded-[50%]">
