@@ -100,7 +100,7 @@ const getCardTemplate = (element) => {
                 <p>${author?.profile_name}</p>
                 <img class="h-6 w-6 ${!verified && "hidden"}" id="verified-img" src="./images/verified.png" alt="">
             </div>
-            <p class="views">${views}</p>
+            <p class="views">${views} views</p>
         </div>
     </div>
 </div>
