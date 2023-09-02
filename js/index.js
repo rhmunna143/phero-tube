@@ -32,6 +32,17 @@ const catCards = async (id) => {
 
     cardsContainer.textContent = "";
 
+    // not found show
+    const notFoundContainer = document.getElementById("not-found");
+
+    if(content.length <= 0) {
+        notFoundContainer.classList.remove("hidden");
+    } else {
+        notFoundContainer.classList.add("hidden");
+    }
+
+
+    // card loop
     content.forEach(element => {
         const arrAuthor = element.authors;
         const postTime = element?.others?.posted_date;
@@ -51,7 +62,6 @@ const catCards = async (id) => {
 
         const author = cont();
         const verified = author?.verified;
-        console.log(id, element);
 
         const div = document.createElement("div");
         div.classList.add("card", "bg-base-100", "rounded-md", "w-[300px]");
